@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	.nav
+	{
+		border: 1px solid #a1a1a1;
+		border-radius:25px;
+		display: table-cell;
+		position: relative;
+	}
+	ul
+	{
+		position: relative;
+		display:inline-block;
+		text-align: center;
+		vertical-align: bottom
+	}
+	li
+	{
+		position: relative;
+		list-style-type:none;
+		float: left;
+		width:140px;
+		margin:0 -4px;/*消除inline-block的空隙*/
+		padding:0px;
+		background-color: #928F8F;
+		/*display:block;*//*把链接显示为块元素可使整个链接区域可点击*/
+	}
+	a
+	{
+		text-align:left;
+		text-decoration: none;
+	}
+	li a:link,a:visited
+	{
+		display: block;
+		color: red;
+	}
+	li a:hover
+	{
+		display: block;
+		color: white;
+		font-weight:bold;
+	}
+	li:hover
+	{
+		background-color: #745E5E;
+	}
+	li ul
+	{
+		position: absolute;
+		left: 0px;
+		display: none;
+	}
+	li li ul
+	{
+		position: relative;
+		left: 0px;
+		display: none;
+	}
+	li:hover ul
+	{
+		display: block;
+	}
+	li:hover li ul
+	{
+		display: none;
+	}
+	li li:hover ul
+	{
+		display: block;
+	}
+	</style>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li><a href="">南昌大学</a>
+       <ul>
+          <li><a href="">前胡校区</a>
+            <ul>
+              <li><a href="">医学院</li>
+              <li><a href="">经济与管理学院</li>
+              <li><a href="">外国语学院</li>
+            </ul>
+          <li><a href="">青山湖校区</a>
+            <ul>
+              <li><a href="">软件学院</li>
+              <li><a href="">科学技术学院</li>
+              <li><a href=""></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+          <a href="">江西理工大学</a>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
