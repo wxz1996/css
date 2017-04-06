@@ -29,7 +29,8 @@
 来看一个例子：
 ![](http://upload-images.jianshu.io/upload_images/3801316-f3d4db14d6086af5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-`img{
+<pre> 
+img{
     float:left;
     margin-left:10px;
     width:200px;
@@ -37,7 +38,8 @@
 p{
     border:5px solid red;
     background-color: pink;
-} `
+} 
+</pre>
 
 给图片加上浮动以后，效果变成了</br>
 ![](http://upload-images.jianshu.io/upload_images/3801316-4b1c9b04f8dea6e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -48,21 +50,22 @@ p{
 
 ![](http://upload-images.jianshu.io/upload_images/3801316-71abc89909f1c2b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-`.main{
-float:left;
-width:200px;
-height:20px;
-margin-left:10px;
-border:1px solid black;
-background-color: pink;
+<pre> 
+.main{
+    float:left;
+    width:200px;
+    height:20px;
+    margin-left:10px;
+    border:1px solid black;
+    background-color: pink;
 }
 .bfc{
-overflow:hidden;
-height:20px;
-border:1px solid black;
-background-color: lightblue;
+    overflow:hidden;
+    height:20px;
+    border:1px solid black;
+    background-color: lightblue;
 }
-`
+</pre>
 >In addition, if the element has any floating descendants whose bottom margin edge is below the element's bottom content edge, then the height is increased to include those edges. Only floats that participate in this block formatting context are taken into account, e.g., floats inside absolutely positioned descendants or other floats are not.
 
 【译】此外，如果BFC具有任何浮动子元素，其底边缘低于BFC的底部内容边缘，则高度增加以包括那些浮动元素。 仅考虑BFC的子元素浮动，例如，浮动在绝对定位或其他中则不会。
@@ -70,8 +73,8 @@ background-color: lightblue;
 得出第三个作用：
 **在w3c官方的定义中，BFC仍属于普通流，创建BFC即创建一个独立的盒子，BFC中的浮动元素虽然脱离了文本流但还在此空间内，浮动元素则会撑起父级BFC的高度。**
 这里就迎来了BFC最最最最最最常用的一个作用：**清除浮动（应该说清除浮动的影响或者闭合浮动比较正确比较正确）**
-首先明确下，BFC是一个完全独立的盒子，不会影响外部的元素的布局。
-BFC是一个机制，有之前的一系列条件可以出发这个机制产生作用。拿overflow:hidden来说（前提条件父元素不设置宽高）：
+首先明确下，BFC是一个完全独立的盒子，不会影响外部的元素的布局。</br>
+BFC是一个机制，有之前的一系列条件可以出发这个机制产生作用。拿overflow:hidden来说（前提条件父元素不设置宽高）：</br>
 overflow：hidden本意是用来隐藏溢出,子元素超过父级元素则会隐藏，浮动元素中父级崩塌，height：auto,height，没了内容，height：0，没了高度，应用了overflow:hidden本来应该,把浮动元素裁剪，这会使布局出现问题。所以这时候就会默认出发BFC这个机制，而**BFC要求不影响外部元素，所以会把BFC内部的元素全部包裹起来。这时候BFC就要计算其内部全部子元素的高度**，就会把浮动这个子元素计算入内。父元素原本没了高度，现在因为触发了BFC得到了一个高度，这时候overflow:hidden就起作用，但是父元素的高度是撑开子浮动元素的，overflow：hidden就显示不出作用，顺带还清除了浮动的影响
 
 个人理解用BFC清除的过程就是：
